@@ -136,7 +136,7 @@ homeSearch(
 }}"""
 
   response = requests.post(url=url, json={"variables": variables, "query": query})
-  
+
   response_status_code = response.status_code
   while response_status_code != 200:
     print('response.status_code:', response_status_code, 'requests try agay!')
@@ -144,7 +144,7 @@ homeSearch(
 
   return response.json()
 
-pagaCount = request_from_showcase('')['data']['homeSearch']['filterHomesOffset']['pagesCount']
+pagesCount = request_from_showcase('')['data']['homeSearch']['filterHomesOffset']['pagesCount']
 
 def under_showcase(page):
   under_showcase = request_from_showcase(page)['data']['homeSearch']['filterHomesOffset']
@@ -183,7 +183,7 @@ def under_showcase(page):
 
   
 
-for page in range(0, pagaCount):
+for page in range(0, pagesCount):
   print('page:',page+1)
 
   under_showcase(page)
