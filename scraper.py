@@ -1,7 +1,7 @@
 import requests
 import json
 
-pagaCount = [0]
+pagaCount = [10]
 positions = [0]
 list = []
 
@@ -152,10 +152,11 @@ homeSearch(
 
 
 
+
 def under_showcase(page):
   under_showcase = request_from_showcase(page)['data']['homeSearch']['filterHomesOffset']
 
-  pagaCount[0] = under_showcase['pagesCount']
+  # pagaCount[0] = under_showcase['pagesCount']
 
   dic_advertisement = {}
 
