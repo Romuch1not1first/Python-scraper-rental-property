@@ -189,7 +189,7 @@ def under_showcase(page):
 
   
 
-for page in range(0, pagaCount[0]):
+for page in range(0, pagaCount):
   print(page)
 
   under_showcase(page)
