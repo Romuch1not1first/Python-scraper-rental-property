@@ -161,7 +161,8 @@ def under_showcase(page):
 
   for node in under_showcase['nodes']:
 
-    dic_advertisement = {      "external_link": f"https://bostad.blocket.se/p2/sv/home/{node['id']}",
+    dic_advertisement = {      
+                 "external_link": f"https://bostad.blocket.se/p2/sv/home/{node['id']}",
                  "external_id": node['id'],
                  "city": node['location']['locality'], 
                  "address": node['location']['route'] + ' ' + node['location']['streetNumber'] + ', ' +node['location']['locality'],
