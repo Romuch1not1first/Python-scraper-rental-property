@@ -1,7 +1,6 @@
 import requests
 import json
 
-pagaCount = [10]
 positions = [0]
 list = []
 
@@ -131,7 +130,10 @@ homeSearch(
 }
 """
   
-  offset = page * 50
+  if page != '':
+    offset = page * 50
+  else:
+    offset = 0
   variables = f"""
   {{
 "limit": 50,
@@ -150,13 +152,10 @@ homeSearch(
   response = requests.post(url=url, json={"variables": variables, "query": query})
   return response.json()
 
-
-
+pagaCount = request_from_showcase('')['data']['homeSearch']['filterHomesOffset']['pagesCount']
 
 def under_showcase(page):
   under_showcase = request_from_showcase(page)['data']['homeSearch']['filterHomesOffset']
-
-  # pagaCount[0] = under_showcase['pagesCount']
 
   dic_advertisement = {}
 
