@@ -162,25 +162,26 @@ def under_showcase(page):
   for node in under_showcase['nodes']:
 
     dic_advertisement = {      "external_link": f"https://bostad.blocket.se/p2/sv/home/{node['id']}",
-                 "external_id": node['id'], 
+                 "external_id": node['id'],
+                 "city": node['location']['locality'], 
+                 "address": node['location']['route'] + ' ' + node['location']['streetNumber'] + ', ' +node['location']['locality'],
                  "title": node['title'],
-                 "description": node['description'],
-                 "property_type": node['type'],
-                 "rent": node['rent'],
-                 "room_count": node['roomCount'],
-                 "deposit": node['qasaGuaranteeCost'],
-                 "agency_fee": node['tenantBaseFee'],
                  "latitude": node['location']['latitude'],
                  "longitude": node['location']['longitude'],
-                 "address": node['location']['route'] + ' ' + node['location']['streetNumber'] + ', ' +node['location']['locality'],
-                 "city": node['location']['locality'],
-                 "available_date": str(node['duration']['startOptimal']).split('T')[0],
+                 "description": node['description'],
+                 "property_type": node['type'],
+                 "room_count": node['roomCount'],
                  "square_meters": node['squareMeters'],
-                 "images": [image['url'] for image in node['uploads']]
+                 "available_date": str(node['duration']['startOptimal']).split('T')[0],
+                 "rent": node['rent'],
+                 "agency_fee": node['tenantBaseFee'],
+                 "deposit": node['qasaGuaranteeCost']
                  }
     
     for trait in node['homeTemplates'][0]['traits']:
       dic_advertisement[f"{trait['type']}"] = True
+
+    dic_advertisement["images"] = [image['url'] for image in node['uploads']]
     
     positions[0] += 1
     dic_advertisement["position"] = positions[0]
