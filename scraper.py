@@ -63,22 +63,8 @@ homeSearch(
       }
       description
       roomCount
-      homeTemplates {
-        id
-        apartmentNumber
-        squareMeters
-        roomCount
-        floor
-        rent
-        homeLayoutPictures {
-          url
-          __typename
-        }
-        description
-        traits {
-          type
-          __typename
-        }
+      traits {
+        type
         __typename
       }
       qasaGuaranteeCost
@@ -179,7 +165,7 @@ def under_showcase(page):
                  "deposit": node['qasaGuaranteeCost']
                  }
     
-    for trait in node['homeTemplates'][0]['traits']:
+    for trait in node['traits']:
       dic_advertisement[f"{trait['type']}"] = True
 
     dic_advertisement["images"] = [image['url'] for image in node['uploads']]
@@ -192,7 +178,7 @@ def under_showcase(page):
   
 
 for page in range(0, pagaCount):
-  print(page)
+  print('page:',page+1)
 
   under_showcase(page)
 
