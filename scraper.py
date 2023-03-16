@@ -136,6 +136,12 @@ homeSearch(
 }}"""
 
   response = requests.post(url=url, json={"variables": variables, "query": query})
+  
+  response_status_code = response.status_code
+  while response_status_code != 200:
+    print('response.status_code:', response_status_code, 'requests try agay!')
+    response = requests.post(url=url, json={"variables": variables, "query": query})
+
   return response.json()
 
 pagaCount = request_from_showcase('')['data']['homeSearch']['filterHomesOffset']['pagesCount']
