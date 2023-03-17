@@ -1,6 +1,7 @@
 import requests
 import json
 import multiprocessing
+import time
 
 def getJsonHomesByPage(page):
   url = 'https://api.qasa.se/graphql'
@@ -169,6 +170,8 @@ def getFormattedListOfHomesByPage(page):
   return formattedListOfHomes
 
 if __name__ == '__main__':
+  start_time = time.time()
+
   final_list_of_homes = []
 
   pagesCount = getJsonHomesByPage(0)['data']['homeSearch']['filterHomesOffset']['pagesCount']
@@ -189,3 +192,5 @@ if __name__ == '__main__':
 
   with open('data.json', 'w', encoding='utf8') as json_file:
     json.dump(final_list_of_homes, json_file, indent=2, ensure_ascii=False)
+
+  print("--- %s seconds ---" % (time.time() - start_time))
