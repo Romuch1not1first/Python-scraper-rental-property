@@ -146,7 +146,7 @@ homeSearch(
 
 pagesCount = request_from_showcase('')['data']['homeSearch']['filterHomesOffset']['pagesCount']
 
-def under_showcase(page):
+def func_under_showcase(page):
   under_showcase = request_from_showcase(page)['data']['homeSearch']['filterHomesOffset']
 
   dic_advertisement = {}
@@ -186,7 +186,7 @@ def under_showcase(page):
 for page in range(0, pagesCount):
   print('page:',page+1)
 
-  under_showcase(page)
+  func_under_showcase(page)
 
 
 
