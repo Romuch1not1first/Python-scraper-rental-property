@@ -133,6 +133,7 @@ def getJsonHomesByPage(page):
   response_status_code = response.status_code
   while response_status_code != 200:
     print('response.status_code:', response_status_code, 'requests try again!')
+    print('response.status_code:', response_status_code, 'requests try again!')
     response = requests.post(url=url, json={"variables": variables, "query": query})
   return response.json()
 
