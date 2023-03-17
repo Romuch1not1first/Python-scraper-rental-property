@@ -170,11 +170,14 @@ def getFormattedListOfHomesByPage(page):
   return formattedListOfHomes
 
 if __name__ == '__main__':
+  print('Hello world1')
   start_time = time.time()
-
+  print('Hello world2')
   final_list_of_homes = []
+  print('Hello world3')
 
   pagesCount = getJsonHomesByPage(0)['data']['homeSearch']['filterHomesOffset']['pagesCount']
+  print('Hello world4')
   print("pagesCount = ", pagesCount)
 
   # Multiprocessing (faster)
