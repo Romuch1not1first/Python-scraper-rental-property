@@ -178,13 +178,13 @@ if __name__ == '__main__':
   print("pagesCount = ", pagesCount)
 
   # Multiprocessing (faster)
-  # processing_pool = multiprocessing.Pool() 
-  # list_of_home_lists = processing_pool.map(getFormattedListOfHomesByPage, range(0, pagesCount))
+  processing_pool = multiprocessing.Pool() 
+  list_of_home_lists = processing_pool.map(getFormattedListOfHomesByPage, range(0, pagesCount))
 
   # Сonsequentially (slower, for debug)
-  list_of_home_lists = []
-  for i in range(0, pagesCount):
-    list_of_home_lists.append(getFormattedListOfHomesByPage(i))
+  # list_of_home_lists = []
+  # for i in range(0, pagesCount):
+  #   list_of_home_lists.append(getFormattedListOfHomesByPage(i))
 
   for home_list in list_of_home_lists:
     for home in home_list:
