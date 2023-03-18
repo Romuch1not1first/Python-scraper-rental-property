@@ -169,7 +169,7 @@ def getFormattedListOfHomesByPage(page):
     i += 1
   return formattedListOfHomes
 
-def main():
+if __name__ == '__main__':
   print('Hello world1')
   start_time = time.time()
   print('Hello world2')
@@ -197,5 +197,3 @@ def main():
     json.dump(final_list_of_homes, json_file, indent=2, ensure_ascii=False)
 
   print("--- %s seconds ---" % (time.time() - start_time))
-
-main()
